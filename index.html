@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather APP</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ca7763005f.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/style.css">
+  </head>
+
+  <body>
+    <h1>
+      WEATHER APP
+    </h1>
+    
+    <div class="container">
+      <form class="searchform" id="search-form">
+        <input type="form" id="city-input" placeholder="Location" autocomplete="off" id="city-input">
+        <button type="submit" class="btn-dark">Search</button>
+        <button type="Current Location" class="btn-light" id="current-location">Current Location</button>
+      </form>
+    </div>
+		<br />
+		
+		<h2 id="selected-location">
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> <span id="city">City</span></li>
+        <li><span id="date">Wedndesday, 25 March 2020 22:00</span></li>
+        <li><small id="last-updated">Last updated: 25 March 2020 21:00</small></li>
+      </ul>
+    </h2>
+
+		<div class="currentWeather">
+        <div class="row">
+          <div class="col-6">
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" width="100%" id="temperature-icon">
+            <br>
+            <span class="currentMaxMin"><span id="current-max"></span>ºC/<span id="current-min"></span>ºC</span>
+          </div>
+          <div class="col-6">
+            <div class="row"><span class="currentValue" id="temperature"></span>
+              <span class="units">
+                <a href="#" id="celsius-link"> ºC</a>|<a href="#" id="fahrenheit-link"> ºF</a>
+              </span>
+            </div>
+            <div class="row"><span class="currentSky" id="weather-description"></span></div>
+            <div class="row">
+							<ul class="weatherDetails">
+								<li class="precipitation">Humidity: <span id="humidity"></span>%</li>
+								<li class="wind">Wind: <span id="wind-speed"></span> Km/h</li>
+							</ul>
+							</div>
+            </div>
+        </div>   
+    </div>
+    <br />
+    <br />
+
+    <h3>HOURLY TEMPERATURE</h2>
+    <div class="hourTemp">
+      <div class="row">
+        <div class="col-2">23:00</div>
+        <div class="col-2">01:00</div>
+        <div class="col-2">03:00</div>
+        <div class="col-2">05:00</div>
+        <div class="col-2">07:00</div>
+        <div class="col-2">09:00</div>
+      </div> 
+        <div class="row">
+        <div class="col-2"><i class="fas fa-cloud-moon-rain"></i></i></div>
+        <div class="col-2"><i class="fas fa-cloud-moon"></i></i></div>
+        <div class="col-2"><i class="fas fa-moon"></i></i></div>
+        <div class="col-2"><i class="fas fa-cloud-moon"></i></i></div>
+        <div class="col-2"><i class="fas fa-cloud-moon-rain"></i></i></div>
+        <div class="col-2"><i class="fas fa-cloud-moon"></i></i></div>
+      </div>
+      <div class="row">
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <h3>DAILY TEMPERATURE</h2>
+    <div class="dailyTemp">
+      <div class="row">
+        <div class="col-2">Monday</div>
+        <div class="col-2">Tueday</div>
+        <div class="col-2">Wednesday</div>
+        <div class="col-2">Thursday</div>
+        <div class="col-2">Friday</div>
+        <div class="col-2">Saturday</div>
+      </div>
+      <div class="row">
+        <div class="col-2"><i class="fas fa-cloud-rain"></i></div>
+        <div class="col-2"><i class="fas fa-cloud"></i></div>
+        <div class="col-2"><i class="fas fa-cloud-sun-rain"></i></div>
+        <div class="col-2"><i class="fas fa-cloud-sun"></i></div>
+        <div class="col-2"><i class="fas fa-sun"></i></div>
+        <div class="col-2"><i class="fas fa-sun"></i></div>
+      </div>
+      <div class="row">
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+        <div class="col-2"><span class="maxTemp">16º</span><span class="minTemp">/9ºC</span></div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <script src="src/script.js"></script>
+  </body>
+</html>

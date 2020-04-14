@@ -1,0 +1,113 @@
+body {
+  background: #cfd8dc;
+  color: #37474f;
+  font-family: "Tomorrow", sans-serif;
+}
+h1 {
+  font-family: "Shadows Into Light", cursive;
+  text-align: center;
+}
+h2{
+  font-weight: 900;
+  padding: 0;
+  margin: 5px auto;
+  max-width: 400px;
+}
+h3 {
+  font-family: "Shadows Into Light", cursive;
+  position: relative;
+}
+ul {
+  padding: 0;
+  text-align: left;
+}
+li {
+  list-style: none;
+  font-size: 20px;
+}
+
+/*Search form*/
+.searchform {
+  padding: 0;
+  margin: 5px auto;
+  max-width: 450px;
+}
+.btn-dark{
+  border-radius: 4px;
+}
+.btn-light{
+  border-radius: 4px;
+}
+
+/*Selected location current weather*/
+#last-updated {
+  color: #e57373;
+}
+.currentWeather {
+  border: 1px dashed #90a4ae;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 400px;
+  border-radius: 10px;
+}
+.row .col-6,
+.row {
+  text-align: center;
+}
+.currentWeather .fas.fa-cloud-moon-rain {
+  font-size: 100px;
+}
+img{
+  position: relative;
+  top: -40px;
+}
+.currentMaxMin{
+  font-size: 25px;
+  font-weight: 400;
+  position: relative;
+  top: -80px;
+}
+.currentValue {
+  font-size: 40px;
+  font-weight: 600;
+}
+.units{
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+}
+.currentSky {
+  font-size: 20px;
+  font-weight: 600;
+}
+.precipitation, .wind, .uvIndex{
+  font-size: 12px;
+}
+
+/*Hourly temperature*/
+.hourTemp {
+  border: 1px solid #90a4ae;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+}
+.fas {
+  font-size: 40px;
+  color: #37474f;
+}
+.maxTemp {
+  color: #00695c;
+}
+.minTemp {
+  color: #4db6ac;
+}
+
+/*Daily temperature*/
+.dailyTemp {
+  border: 1px solid #90a4ae;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+}
