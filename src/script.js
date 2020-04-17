@@ -64,6 +64,21 @@ function dispalyForecast(response) {
   }
 }
 //📆Daily Forecast
+//function dispalyDailyForecast(response) {
+//  let forecastElement = document.querySelector("#daily-forecast");
+//  forecastElement.innerHTML = null;
+//  let forecast = null;
+//
+//  for (let index = 0; index < 6; index++) {
+//    forecast = response.data.list[index];
+//    forecastElement.innerHTML += ` 
+//    <div class="col-2">
+//      <li class="weatherForecast">${formatDate(forecast.dt * 1000)}</li>
+//      <li><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" width="50%"/></li>
+//      <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
+//    </div>`;
+//  }
+//}
 
 //🕵️‍♀️Search City
 function searchCity(city) {
@@ -73,6 +88,7 @@ function searchCity(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(dispalyForecast);
+//axios.get(apiUrl).then(dispalyDailyForecast); 
 }
 
 function searchSubmit(event) {
