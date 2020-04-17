@@ -33,14 +33,14 @@
       <ul>
         <li><i class="fas fa-map-marker-alt"></i> <span id="city">City</span></li>
         <li><span id="date">Wedndesday, 25 March 2020 22:00</span></li>
-        <li><small id="last-updated">Last updated: 25 March 2020 21:00</small></li>
+        <li><span class="lastUpdated">Last updated: </span><span id="last-updated">21:00</span></li>
       </ul>
     </h2>
 
 		<div class="currentWeather">
         <div class="row">
           <div class="col-6">
-            <img src="http://openweathermap.org/img/wn/03d@2x.png" width="100%" id="temperature-icon">
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" width="90%" id="temperature-icon">
             <span class="currentMaxMin"><span id="current-max"></span>ºC/<span id="current-min"></span>ºC</span>
           </div>
           <div class="col-6">
@@ -62,60 +62,14 @@
     </div>
 
     <h3>HOURLY TEMPERATURE</h2>
-    <div class="forecast" id="hourly-forecast">
-      <div class="row">
-        <div class="col-2">23:00</div>
-        <div class="col-2">01:00</div>
-        <div class="col-2">03:00</div>
-        <div class="col-2">05:00</div>
-        <div class="col-2">07:00</div>
-        <div class="col-2">09:00</div>
-      </div> 
-        <div class="row">
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-      </div>
-      <div class="row">
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-      </div>
+    <div class="forecast">
+      <div class="row weatherForecast" id="hourly-forecast"></div>
     </div>
     <br />
 
     <h3>DAILY TEMPERATURE</h2>
-    <div class="forecast" id="daily-forecast">
-      <div class="row">
-        <div class="col-2">Monday</div>
-        <div class="col-2">Tueday</div>
-        <div class="col-2">Wednesday</div>
-        <div class="col-2">Thursday</div>
-        <div class="col-2">Friday</div>
-        <div class="col-2">Saturday</div>
-      </div>
-      <div class="row">
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-        <div class="col-2">icon</div>
-      </div>
-      <div class="row">
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-        <div class="col-2"><span class="maxTemp">16</span>º/<span class="minTemp">9</span>ºC</div>
-      </div>
+    <div class="forecast">
+      <div class="row weatherForecast" id="daily-forecast"></div>
     </div>
     <footer>
       <small>Coded by <a href="https://www.linkedin.com/in/marta-trindade-ap/" class="refLindedin" target="_blank">Marta Trindade</a> 
