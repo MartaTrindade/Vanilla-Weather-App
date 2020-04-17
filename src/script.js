@@ -4,9 +4,9 @@ function formatDate(date) {
   let hour = date.getHours();if (hour < 10) {
     hour = `0${hour}`;
   }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
+  let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
   }
   let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
   let day = days[date.getDay()];
@@ -14,23 +14,36 @@ function formatDate(date) {
   let month = months[date.getMonth()];
   let year = date.getFullYear();
 
-  let lastUpdated = document.querySelector("#last-updated");
-  lastUpdated.innerHTML = `Last updated: ${dateDay} ${month} ${year} ${hour}:${minutes}`;
+  return `${day}, ${dateDay} ${month} ${year} ${hour}:${minute}`;
+}
 
-  return `${day}, ${dateDay} ${month} ${year} ${hour}:${minutes}`;
+//🕐Last updated - STOP CTRL+Z
+function formatLastUpdated (timestamp) {
+  let updateDate = new Date(timestamp);
+  let hours = updateDate.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = updateDate.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `Last updated: ${hours}:${minutes}`;
 }
 
 //👨‍🏫Weather API
 function displayWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#weather-description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#weather-description").innerHTML = response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind-speed").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#current-max").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#current-min").innerHTML = Math.round(response.data.main.temp_min);
-  
+  document.querySelector("#last-updated").innerHTML = formatLastUpdated(response.data.dt * 1000);
   let iconElement = document.querySelector("#temperature-icon");
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
