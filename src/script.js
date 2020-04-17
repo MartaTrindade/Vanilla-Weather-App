@@ -17,7 +17,7 @@ function formatDate(date) {
   return `${day}, ${dateDay} ${month} ${year} ${hour}:${minute}`;
 }
 
-//🕐Last updated - STOP CTRL+Z
+//🕐Last updated
 function formatLastUpdated (timestamp) {
   let updateDate = new Date(timestamp);
   let hours = updateDate.getHours();
@@ -34,7 +34,6 @@ function formatLastUpdated (timestamp) {
 
 //👨‍🏫Weather API
 function displayWeather(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   celsiusTemperature = response.data.main.temp;
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
@@ -48,7 +47,7 @@ function displayWeather(response) {
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
-//Hourly Forecast
+//⌛Hourly Forecast
 function dispalyForecast(response) {
   let forecastElement = document.querySelector("#hourly-forecast");
   forecastElement.innerHTML = null;
@@ -64,6 +63,7 @@ function dispalyForecast(response) {
     </div>`;
   }
 }
+//📆Daily Forecast
 
 //🕵️‍♀️Search City
 function searchCity(city) {
