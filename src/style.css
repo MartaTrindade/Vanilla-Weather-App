@@ -40,6 +40,10 @@ li {
 }
 
 /*Selected location current weather*/
+.fas {
+  font-size: 20px;
+  color: #37474f;
+}
 #last-updated {
   color: #e57373;
 }
@@ -49,6 +53,13 @@ li {
   max-width: 400px;
   border-radius: 10px;
   text-transform: capitalize;
+}
+.currentWeather .active {
+  color: #37474f;
+  cursor: default;
+}
+.currentWeather .active:hover {
+  text-decoration: none;
 }
 .row .col-6,
 .row {
@@ -94,10 +105,6 @@ img{
   margin: 15px auto;
   max-width: 800px;
   border-radius: 10px;
-}
-.fas {
-  font-size: 40px;
-  color: #37474f;
 }
 .maxTemp {
   color: #00695c;
