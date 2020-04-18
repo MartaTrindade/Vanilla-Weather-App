@@ -67,12 +67,11 @@ function dispalyForecast(response) {
 function formatDayForecast(timestamp) {
   let forecastDay = new Date(timestamp);
   let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let weekDay = weekDays[forecastDay.getDate()];
-  return `${forecastDay}`;
+  let weekDay = weekDays[forecastDay.getDay()];
+  return `${weekDay}`;
 }
 
 function displayDailyForecast(response) {
-  console.log(response.data);
   let forecastElement = document.querySelector("#daily-forecast");
   forecastElement.innerHTML = null;
   let forecast = null;
