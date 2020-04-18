@@ -65,8 +65,9 @@ function dispalyForecast(response) {
 }
 //📆Daily Forecast
 //function dispalyDailyForecast(response) {
-//  let forecastElement = document.querySelector("#daily-forecast");
-//  forecastElement.innerHTML = null;
+//  let dailyForecastElement = document.querySelector("#daily-forecast");
+//  let weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+//  dailyForecastElement.innerHTML = null;
 //  let forecast = null;
 //
 //  for (let index = 0; index < 6; index++) {
@@ -88,7 +89,7 @@ function searchCity(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(dispalyForecast);
-//axios.get(apiUrl).then(dispalyDailyForecast); 
+//axios.get(apiUrl).then(displayDailyForecast); 
 }
 
 function searchSubmit(event) {
