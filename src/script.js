@@ -64,23 +64,29 @@ function dispalyForecast(response) {
   }
 }
 //📆Daily Forecast
-//function displayDailyForecast(response) {
-//  let forecastElement = document.querySelector("#daily-forecast");
-//  //let weekDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-//  forecastElement.innerHTML = null;
-//  let forecast = null;
-//
-//  for (let index = 0; index < 6; index++) {
-//    let indexDaily = index * 8;
-//    forecast = response.data.list[indexDaily];
-//    forecastElement.innerHTML += ` 
-//    <div class="col-2">
-//      <li class="weatherForecast">${formatLastUpdated(forecast.dt * 1000)}</li>
-//      <li><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" width="50%"/></li>
-//      <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
-//    </div>`;
-//  }
-//}
+function formatDayForecast(timestamp) {
+  let forecastDay = new Date(timestamp);
+  let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weekDay = weekDays[forecastDay.getDate()];
+  return `${forecastDay}`;
+}
+
+function displayDailyForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#daily-forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 5; index++) {
+    forecast = response.data.list[index * 8];
+    forecastElement.innerHTML += ` 
+    <div class="col-2">
+      <li class="weatherForecast">${formatDayForecast(forecast.dt * 1000)}</li>
+      <li><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" width="50%"/></li>
+      <li class="weatherForecast">${Math.round(forecast.main.temp_max)}º/${Math.round(forecast.main.temp_min)}ºC</li>
+    </div>`;
+  }
+}
 
 //🕵️‍♀️Search City
 function searchCity(city) {
@@ -90,7 +96,7 @@ function searchCity(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(dispalyForecast);
-//  axios.get(apiUrl).then(displayDailyForecast); 
+  axios.get(apiUrl).then(displayDailyForecast); 
 }
 
 function searchSubmit(event) {
