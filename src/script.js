@@ -110,8 +110,11 @@ function searchLocation(position) {
   let lat = (position.coords.latitude);
   let lon = (position.coords.longitude);
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  
   axios.get(apiUrl).then(displayWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(dispalyForecast);
+  axios.get(apiUrl).then(displayDailyForecast);
 }
 function getCurrentLocation(event) {
   event.preventDefault();
